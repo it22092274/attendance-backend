@@ -6,22 +6,28 @@ const getqr = async (req, res) => {
     const { id } = req.params;
 
     try {
-        const module = await ModuleModel.findById(id);
+        const currentmodule = await ModuleModel.findById(id);
+        console.log("=========================================================================")
+        console.log(currentmodule);
 
-        if (!module) {
+        if (!currentmodule) {
             return res.status(404).send('Module not found');
         }
 
-        const link = `http://192.168.43.60:5173/display_real_time_attendance_page`;
+        const { module, year, semester, batch } = currentmodule; // Get the query params from req.query
+        console.log(module,year,semester,batch)
+        const link = `http://localhost:5173/student_form_page?module=${module}&year=${year}&semester=${semester}&batch=${batch}`;
         const qrcode = qr.image(link, { type: 'png' });
 
         res.type('png');
         qrcode.pipe(res);
+        console.log("=========================================================================")
     } catch (error) {
         console.error('Error generating QR Code:', error);
         res.status(500).send('Internal Server Error');
     }
 };
+
 
 const fetchRealTimeData = async (req, res) => {
     const { module, year, semester, batch, date } = req.query;
