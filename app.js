@@ -11,6 +11,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 connectDB()
 
+app.get('/', () => {
+    console.log('hello');
+})
+
 const qrRoutes = require('./routes/qrRoutes');
 app.use('/api/lecture', qrRoutes);
 
