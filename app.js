@@ -6,7 +6,17 @@ const app = express();
 const {connectDB} = require('./database/config');
 
 app.use(bodyParser.json());
-app.use(cors());
+
+const corsOptions = {
+    origin: 'https://attendance-inky-eight.vercel.app', // Your frontend URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+    optionsSuccessStatus: 200 // Some legacy browsers choke on 204
+  };
+  
+app.use(cors(corsOptions));
+
 app.use(bodyParser.urlencoded({ extended: true }));
 
 connectDB()
