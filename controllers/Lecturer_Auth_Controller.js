@@ -1,5 +1,5 @@
 const { LecturerModel } = require("../models/LecturerModel");
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const lecturer_login = async (req, res) => {
