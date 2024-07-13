@@ -16,7 +16,7 @@ const getqr = async (req, res) => {
 
         const { module, year, semester, batch } = currentmodule; // Get the query params from req.query
         console.log(module,year,semester,batch)
-        const link = `http://localhost:5173/student_form_page?module=${module}&year=${year}&semester=${semester}&batch=${batch}`;
+        const link = `https://attendance-inky-eight.vercel.app/student_form_page?module=${module}&year=${year}&semester=${semester}&batch=${batch}`;
         const qrcode = qr.image(link, { type: 'png' });
 
         res.type('png');
