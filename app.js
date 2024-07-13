@@ -35,7 +35,7 @@ const qrRoutes = require('./routes/qrRoutes');
 app.use('/api/lecture', qrRoutes);
 
 const LecturerAuthRoute = require('./routes/Lecturer_Auth_Router');
-app.use('/api/lecturerauth', cors(corsOptions), LecturerAuthRoute);
+app.use('/api/lecturerauth', LecturerAuthRoute);
 
 const moduleRoutes = require('./routes/ModuleRoutes');
 app.use('/api/modules', moduleRoutes);
