@@ -1,11 +1,9 @@
 {
-  "name": "attendence-backend",
+  "name": "attendance-backend",
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "node server/index.js",
-    "build": "npm install && npm install --prefix client && npm run build --prefix client",
-    "render-postbuild": "npm install && npm install --prefix client && npm run build --prefix client"
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",

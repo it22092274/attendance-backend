@@ -1,15 +1,16 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const port = 3000;
+const { connectDB } = require('./database/config');
+
 const app = express();
-const {connectDB} = require('./database/config');
+const port = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-connectDB()
+connectDB();
 
 const qrRoutes = require('./routes/qrRoutes');
 app.use('/api/lecture', qrRoutes);
