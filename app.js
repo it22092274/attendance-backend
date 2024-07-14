@@ -9,11 +9,13 @@ const port = process.env.PORT || 3000;
 // Connect to database
 connectDB();
 
+
+
 // CORS configuration
 const corsOptions = {
-  origin: 'https://attendance-inky-eight.vercel.app',
+  origin: '*', // Allow all origins
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  allowedHeaders: ['*'],
   credentials: true,
   optionsSuccessStatus: 200 // Some legacy browsers (IE11, various SmartTVs) choke on 204
 };
@@ -30,7 +32,7 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-// Routes
+// Routes setup
 const qrRoutes = require('./routes/qrRoutes');
 app.use('/api/lecture', qrRoutes);
 
