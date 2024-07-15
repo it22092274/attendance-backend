@@ -12,16 +12,16 @@ connectDB();
 
 
 // CORS configuration
-const corsOptions = {
-  origin: '*', // Allow all origins
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['*'],
-  credentials: true,
-  optionsSuccessStatus: 200 // Some legacy browsers (IE11, various SmartTVs) choke on 204
-};
+// const corsOptions = {
+//   origin: '*', // Allow all origins
+//   methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//   allowedHeaders: ['*'],
+//   credentials: true,
+//   optionsSuccessStatus: 200 // Some legacy browsers (IE11, various SmartTVs) choke on 204
+// };
 
 // Apply CORS middleware
-app.use(cors(corsOptions));
+app.use(cors());
 
 // Body parser middleware
 app.use(bodyParser.json());
